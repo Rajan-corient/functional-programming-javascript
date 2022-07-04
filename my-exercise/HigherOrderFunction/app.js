@@ -25,27 +25,4 @@ let func1 = multiply(5);
 let func2 = func1(100);
 console.log(func2);
 
-// closure exmaple in module function
-var APP = (function module() {
-    var a = 3;
 
-    var print = function (val) {
-        console.log(val);
-    }    
-    
-    var sum = function (b) {
-        print(a + b);
-    }    
-    
-    var multipy = function (b) {
-        print(a * b);
-    }
-
-    return {
-        sum: sum,
-        multipy: multipy
-    }
-})();
-
-APP.sum(2);
-APP.multipy(2);
