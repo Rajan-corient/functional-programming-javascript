@@ -44,13 +44,56 @@ function filterArticles(arr) {
     return arr.filter(noArticles);
 }
 
-const finalArr = filterArticles(makeArr(makeUpperCase(removeSpecialChar(trimStr(str)))));
-console.log('finalArr', finalArr);
+// let s1 = trimStr(str);
+// let s2 = removeSpecialChar(s1);
+// let s3 = makeUpperCase(s2);
+// let s4 = makeArr(s3);
+// let finalArr1 = filterArticles(s4);
 
-let s1 = trimStr(str);
-let s2 = removeSpecialChar(s1);
-let s3 = makeUpperCase(s2);
-let s4 = makeArr(s3);
-let finalArr1 = filterArticles(s4);
+// console.log('finalArr1', finalArr1);
 
-console.log('finalArr1', finalArr1);
+// const finalArr = filterArticles(makeArr(makeUpperCase(removeSpecialChar(trimStr(str)))));
+// console.log('finalArr', finalArr);
+
+
+
+// composing function -- compose (right to left)
+
+const compose = function (...fns) {
+    return function (x) {
+        return fns.reduceRight((acc, fn) => {
+            return  fn(acc);
+        }, x)
+    }
+}
+
+const prepareString2 = compose(
+    filterArticles,
+    makeArr,
+    makeUpperCase, 
+    removeSpecialChar, 
+    trimStr);
+
+const finalArr2 = prepareString2(str);
+console.log('finalArr2', finalArr2);
+
+
+// pipe function -- pipe (left to right)
+
+const pipe = function (...fns) {
+    return function (x) {
+        return fns.reduce((acc, fn) => {
+            return  fn(acc);
+        }, x)
+    }
+}
+
+const prepareString3 = pipe(
+    trimStr,
+    removeSpecialChar,
+    makeUpperCase, 
+    makeArr, 
+    filterArticles);
+
+const finalArr3 = prepareString3(str);
+console.log('finalArr3', finalArr3);
