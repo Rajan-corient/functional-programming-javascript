@@ -4,7 +4,9 @@ const multiply = function (x, y) {
 let res1 = multiply(4, 5)
 console.log('res1', res1);
 
-//  currying example by bind method
+// Currying example by bind method
+// Currying replaces a function that requires multiple argumnts
+// with a multiple function which requires only one argument
 
 const multiplyByTwo = multiply.bind(this, 2);
 let res2 = multiplyByTwo(5);
@@ -40,6 +42,7 @@ function greet2(greet) {
     }
 }
 
+// Arity 1 asonly one parameter
 const welcomeGreet = greet2('Welcome');
 welcomeGreet('Aakash');
 welcomeGreet('Suraj');
