@@ -42,7 +42,7 @@ function greet2(greet) {
     }
 }
 
-// Arity 1 asonly one parameter
+// Arity 1 as only one parameter
 const welcomeGreet = greet2('Welcome');
 welcomeGreet('Aakash');
 welcomeGreet('Suraj');
@@ -65,7 +65,7 @@ console.log('res7', multiplyByTen(6));
 
 // without currying 
 
-function sumWithoutCurrying(a, b , c, d) {
+function sumWithoutCurrying(a, b, c, d) {
     return a + b + c + d;
 }
 
